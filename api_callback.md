@@ -2,7 +2,7 @@
 
 A user at a store's Control Panel kicks off the installation sequence by clicking to install your app. Bigcommerce redirects the user to the **Auth Callback URI** provided during [app registration](/api/registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
-<div class="bui-message bui-message-info"><span class="bui-message-text">PRO TIP: The install request comes from the client browser, rather than directly from Bigcommerce. This allows you to use a non-publicly-available **Auth Callback URI** while testing your app.</span></div>
+>PRO TIP: The install request comes from the client browser, rather than directly from Bigcommerce. This allows you to use a non-publicly-available **Auth Callback URI** while testing your app.</span></div>
 
 The following diagram illustrates the entire sequence.
 
@@ -15,7 +15,7 @@ The remainder of this section discusses each action your app needs to take durin
 3.  [Making the **POST** request](#post-req)
 4.  [Receiving the **POST** response](#post-receipt)
 
-## <a id="get-req"></a>Receiving the GET request
+## Receiving the GET request
 
 ### Overview
 
@@ -25,54 +25,19 @@ The **GET** request to your **Auth Callback URI** contains a temporary code that
 
 The following table details the full list of parameters and values included in the **GET** request from Bigcommerce to your **Auth Callback URI**. Bigcommerce passes these within the URI itself as query parameters.
 
-<table class="bui-table">
-
-<thead>
-
-<tr>
-
-<th>Parameter</th>
-
-<th>Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>**code**</td>
-
-<td>Temporary code to exchange for a permanent OAuth token. See [Making the **POST** request](#post-req) below for more information about this exchange.</td>
-
-</tr>
-
-<tr>
-
-<td>**scope**</td>
-
-<td>List of scopes authorized by the user. As a best practice, you should validate this list to ensure that it matches the needs of your app and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none.</td>
-
-</tr>
-
-<tr>
-
-<td>**context**</td>
-
-<td>The store hash, a unique value that identifies the store that the user who clicked to install your app is logged into. Bigcommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value as you will need to pass it in all your requests to the Stores API.</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Parameter | Description |
+| --- | --- |
+| **code** | Temporary code to exchange for a permanent OAuth token. See [Making the **POST** request](#post-req) below for more information about this exchange. |
+| **scope** | List of scopes authorized by the user. As a best practice, you should validate this list to ensure that it matches the needs of your app and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
+| **context** | The store hash, a unique value that identifies the store that the user who clicked to install your app is logged into. Bigcommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value as you will need to pass it in all your requests to the Stores API. |
 
 ### Example
 
-    GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1
-    Host: app.example.com
+```
+GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1
+Host: app.example.com
+
+```
 
 ## <a id="get-response"></a>Responding to the GET request
 
@@ -92,81 +57,15 @@ Upon receiving the **POST**, Bigcommerce marks the status of your app as "Instal
 
 Include values for each of the following parameters.
 
-<table class="bui-table">
-
-<thead>
-
-<tr>
-
-<th>Parameter</th>
-
-<th>Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>**client_id**</td>
-
-<td>The Client ID for your app, obtained during [registration](/api/registration).</td>
-
-</tr>
-
-<tr>
-
-<td>**client_secret**</td>
-
-<td>The Client Secret for your app, obtained during [registration](/api/registration).</td>
-
-</tr>
-
-<tr>
-
-<td>**code**</td>
-
-<td>Temporary access code received in the [**GET** request](#get-req) discussed above.</td>
-
-</tr>
-
-<tr>
-
-<td>**scope**</td>
-
-<td>List of OAuth scopes received in the [**GET** request](#get-req) discussed above.</td>
-
-</tr>
-
-<tr>
-
-<td>**grant_type**</td>
-
-<td>Always use the following: **authorization_code**.</td>
-
-</tr>
-
-<tr>
-
-<td>**redirect_uri**</td>
-
-<td>Must be identical to your registered **Auth Callback URI**.</td>
-
-</tr>
-
-<tr>
-
-<td>**context**</td>
-
-<td>The store hash received in the [**GET** request](#get-req), in the format: **stores/{_store_hash_}**</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Parameter | Description |
+| --- | --- |
+| **client_id** | The Client ID for your app, obtained during [registration](/api/registration). |
+| **client_secret** | The Client Secret for your app, obtained during [registration](/api/registration). |
+| **code** | Temporary access code received in the [**GET** request](#get-req) discussed above. |
+| **scope** | List of OAuth scopes received in the [**GET** request](#get-req) discussed above. |
+| **grant_type** | Always use the following: **authorization_code**. |
+| **redirect_uri** | Must be identical to your registered **Auth Callback URI**. |
+| **context** | The store hash received in the [**GET** request](#get-req), in the format: **stores/{_store_hash_}** |
 
 ### Examples
 
@@ -177,33 +76,39 @@ Include values for each of the following parameters.
 
 <div class="bui-tab-panel is-active" id="token-http">
 
-    POST /oauth2/token HTTP/1.1
-    Host: login.bigcommerce.com
-    Content-Type: application/x-www-form-urlencoded
-    Content-Length: 186
+```
+POST /oauth2/token HTTP/1.1
+Host: login.bigcommerce.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 186
 
-    client_id=236754&client_secret=m1ng83993rsq3yxg&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/g5cd38
+client_id=236754&client_secret=m1ng83993rsq3yxg&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/g5cd38
+
+```
 
 </div>
 
 <div class="bui-tab-panel" id="token-php">
 
-    use Bigcommerce\Api\Connection;
+```
+use Bigcommerce\Api\Connection;
 
-    $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
-    $connection = new Connection();
-    $connection->useUrlencoded();
-    $response = $connection->post($tokenUrl, array(
-        "client_id" => "236754",
-        "client_secret" => "m1ng83993rsq3yxg",
-        "redirect_uri" => "https://app.example.com/oauth",
-        "grant_type" => "authorization_code",
-        "code" => $request->get("code"),
-        "scope" => $request->get("scope"),
-        "context" => $request->get("context"),
-    ));
+$tokenUrl = "https://login.bigcommerce.com/oauth2/token";
+$connection = new Connection();
+$connection->useUrlencoded();
+$response = $connection->post($tokenUrl, array(
+    "client_id" => "236754",
+    "client_secret" => "m1ng83993rsq3yxg",
+    "redirect_uri" => "https://app.example.com/oauth",
+    "grant_type" => "authorization_code",
+    "code" => $request->get("code"),
+    "scope" => $request->get("scope"),
+    "context" => $request->get("context"),
+));
 
-    $token = $response->access_token;
+$token = $response->access_token;
+
+```
 
 </div>
 
@@ -217,86 +122,24 @@ The **POST** response will include a JSON object containing the permanent OAuth 
 
 ### JSON Values
 
-<table class="bui-table">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Data Type</th>
-
-<th>Value Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>**access_token**</td>
-
-<td>string</td>
-
-<td>The permanent OAuth token that your app can use to make requests to the Stores API on behalf of the user. Store this value securely.</td>
-
-</tr>
-
-<tr>
-
-<td>**scope**</td>
-
-<td>string</td>
-
-<td>List of authorization scopes.</td>
-
-</tr>
-
-<tr>
-
-<td>**id**</td>
-
-<td>integer</td>
-
-<td>Unique identifier for the user. Store this value to identify the user at load and uninstall.</td>
-
-</tr>
-
-<tr>
-
-<td>**email**</td>
-
-<td>string</td>
-
-<td>The user’s email address. Store this value to identify the user at load and uninstall.</td>
-
-</tr>
-
-<tr>
-
-<td>**context**</td>
-
-<td>string</td>
-
-<td>The store hash, as well as a base path: **stores/{_store_hash_}**</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Name | Data Type | Value Description |
+| --- | --- | --- |
+| **access_token** | string | The permanent OAuth token that your app can use to make requests to the Stores API on behalf of the user. Store this value securely. |
+| **scope** | string | List of authorization scopes. |
+| **id** | integer | Unique identifier for the user. Store this value to identify the user at load and uninstall. |
+| **email** | string | The user’s email address. Store this value to identify the user at load and uninstall. |
+| **context** | string | The store hash, as well as a base path: **stores/{_store_hash_}** |
 
 ### JSON Example
 
-    {
-      "access_token": "g3y3ab5cctiu0edpy9n8gzl0p25og9u",
-      "scope": "store_v2_orders",
-      "user": {
-        "id": 24654,
-        "email": "merchant@mybigcommerce.com"
-      },
-      "context": "stores/g5cd38"
-    }
+```
+{
+  "access_token": "g3y3ab5cctiu0edpy9n8gzl0p25og9u",
+  "scope": "store_v2_orders",
+  "user": {
+    "id": 24654,
+    "email": "merchant@mybigcommerce.com"
+  },
+  "context": "stores/g5cd38"
+}
+```
