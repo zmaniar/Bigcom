@@ -29,25 +29,11 @@ To get into your sandbox store, log into the Partner Portal, then click **Create
 
 <div class="bui-message bui-message-info"><span class="bui-message-text">NOTE: Although the name of the **Create a Trial Store** option indicates that the store may be temporary, it is not.</span></div>
 
-<div class="bui-row">
-
 ###   3\. Get your keys
 
-<div class="bui-col-1-2">
-
-#### Public apps
-
-Public apps (also known as [Single-Click Apps](https://www.bigcommerce.com/single-click-apps/)) can be listed in the App Store for easy installation in all Bigcommerce stores. They use OAuth to obtain an access token and communicate with the central Bigcommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](/api/approval-requirements). To start making API requests, you'll need a [**Client ID** and **Client Secret**](/api/registration), and an [OAuth token](/api/callback).
-
-</div>
-
-<div class="bui-col-1-2">
-
-#### Private apps
-
-Private apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single Bigcommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints. From the Control Panel of your sandbox store, you can [get the base path, user ID, and API token](/api/legacy/basic-auth) that you need to start making calls.
-
-</div>
+|Public apps | Private apps|
+|------------|-------------|
+|Public apps (also known as [Single-Click Apps](https://www.bigcommerce.com/single-click-apps/)) can be listed in the App Store for easy installation in all Bigcommerce stores. They use OAuth to obtain an access token and communicate with the central Bigcommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](/api/approval-requirements). To start making API requests, you'll need a [**Client ID** and **Client Secret**](/api/registration), and an [OAuth token](/api/callback).| Private apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single Bigcommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints. From the Control Panel of your sandbox store, you can [get the base path, user ID, and API token](/api/legacy/basic-auth) that you need to start making calls."
 
 </div>
 
