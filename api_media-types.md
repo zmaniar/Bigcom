@@ -2,7 +2,7 @@
 
 The Bigcommerce API can both accept requests and respond in JSON or XML. Requests should be encoded using the UTF-8 character set. Other character sets may have unpredictable results.
 
-<div class="bui-message bui-message-info"><span class="bui-message-text">NOTE: The XML media type is deprecated. The next version of the Stores API will support JSON only.</span></div>
+>NOTE: The XML media type is deprecated. The next version of the Stores API will support JSON only.</span></div>
 
 ## Request Content Type
 
@@ -218,24 +218,33 @@ If the request returns more than one result, then the response will consist of a
 
 XML has a content type of `**application/xml**`. All XML transactions begin with the standard XML declaration:
 
-    <?xml version="1.0" encoding="UTF-8"?>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+```
 
 ### Request Structure
 
 The body of an XML request should first contain an element that is named according to the resource in singular form, such as product for the products resource:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <product> 
-    </product>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<product> 
+</product>
+
+```
 
 The resource element should then contain a set of elements that match the fields described in that resources' documentation:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <product>
-        <id>5</id>
-        <name>iPod</name>
-        <description>A portable MP3 music player.</description>
-    </product>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <id>5</id>
+    <name>iPod</name>
+    <description>A portable MP3 music player.</description>
+</product>
+
+```
 
 ### Response Structure
 
@@ -243,44 +252,50 @@ To receive an XML response, the request URI should include a .xml extension:
 
 `**GET /customers/1.xml**`
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <customer>
-      <id>1</id>
-      <company>Bigcommerce<company>
-      <first_name>Philip</first_name>
-      <last_name>Muir</last_name>
-      <email>phil.muir@bigcommerce.com</email>
-      <phone></phone>
-      <date_created>Tue, 16 Aug 2011 23:15:07 +0000</date_created>
-      <date_modified>Tue, 16 Aug 2011 23:16:37 +0000</date_modified>
-      <store_credit>0.0000</store_credit>
-      <registration_ip_address>10.1.1.102</registration_ip_address>
-      <customer_group_id>0</customer_group_id>
-      <notes>NULL</notes>
-      <addresses>
-        <link rel="resource" href="https://www.example.com/api/v2/customers/1/addresses.xml">/customers/1/addresses</link>
-      </addresses>
-    </customer>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<customer>
+  <id>1</id>
+  <company>Bigcommerce<company>
+  <first_name>Philip</first_name>
+  <last_name>Muir</last_name>
+  <email>phil.muir@bigcommerce.com</email>
+  <phone></phone>
+  <date_created>Tue, 16 Aug 2011 23:15:07 +0000</date_created>
+  <date_modified>Tue, 16 Aug 2011 23:16:37 +0000</date_modified>
+  <store_credit>0.0000</store_credit>
+  <registration_ip_address>10.1.1.102</registration_ip_address>
+  <customer_group_id>0</customer_group_id>
+  <notes>NULL</notes>
+  <addresses>
+    <link rel="resource" href="https://www.example.com/api/v2/customers/1/addresses.xml">/customers/1/addresses</link>
+  </addresses>
+</customer>
+
+```
 
 If the request returns more than one result, then the response will consist of an element named according to the resource in plural form, which contains a set of objects for each result:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <customers>
-      <customer>
-        <id>1</id>
-        <company>Bigcommerce</company>
-        <first_name>Philip</first_name>
-        <last_name>Muir</last_name>
-        <email>phil.muir@bigcommerce.com</email>
-        <phone></phone>
-        <date_created>Tue, 16 Aug 2011 23:15:07 +0000</date_created>
-        <date_modified>Tue, 16 Aug 2011 23:16:37 +0000</date_modified>
-        <store_credit>0.0000</store_credit>
-        <registration_ip_address>10.1.1.102</registration_ip_address>
-        <customer_group_id>0</customer_group_id>
-        <notes>NULL</notes>
-        <addresses>
-          <link rel="resource" href="https://www.example.com/api/v2/customers/1/addresses.xml">/customers/1/addresses</link>
-        </addresses>
-      </customer>
-    </customers>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<customers>
+  <customer>
+    <id>1</id>
+    <company>Bigcommerce</company>
+    <first_name>Philip</first_name>
+    <last_name>Muir</last_name>
+    <email>phil.muir@bigcommerce.com</email>
+    <phone></phone>
+    <date_created>Tue, 16 Aug 2011 23:15:07 +0000</date_created>
+    <date_modified>Tue, 16 Aug 2011 23:16:37 +0000</date_modified>
+    <store_credit>0.0000</store_credit>
+    <registration_ip_address>10.1.1.102</registration_ip_address>
+    <customer_group_id>0</customer_group_id>
+    <notes>NULL</notes>
+    <addresses>
+      <link rel="resource" href="https://www.example.com/api/v2/customers/1/addresses.xml">/customers/1/addresses</link>
+    </addresses>
+  </customer>
+</customers>
+
+```
