@@ -69,13 +69,8 @@ Include values for each of the following parameters.
 
 ### Examples
 
-<div class="bui-tabs">
 
 *   [HTTP](#token-http)
-*   [PHP](#token-php)
-
-<div class="bui-tab-panel is-active" id="token-http">
-
 ```
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
@@ -83,16 +78,12 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 
 client_id=236754&client_secret=m1ng83993rsq3yxg&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/g5cd38
-
 ```
 
-</div>
-
-<div class="bui-tab-panel" id="token-php">
+*   [PHP](#token-php)
 
 ```
 use Bigcommerce\Api\Connection;
-
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
 $connection->useUrlencoded();
@@ -105,15 +96,8 @@ $response = $connection->post($tokenUrl, array(
     "scope" => $request->get("scope"),
     "context" => $request->get("context"),
 ));
-
 $token = $response->access_token;
-
 ```
-
-</div>
-
-</div>
-
 ## <a id="post-receipt"></a>Receiving the POST response
 
 ### Overview
