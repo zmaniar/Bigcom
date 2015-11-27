@@ -27,8 +27,8 @@ Next, initialize the SDK. The basic initialization call is:
 
 Optionally, you can pass a logout callback function within the initialization call:
 
-`**Bigcommerce.init({  
-      onLogout: callback  
+`**Bigcommerce.init({
+      onLogout: callback
 });**`
 
 This callback function will run when the user explicitly logs out of the Bigcommerce control panel, or is automatically logged out. The callback will allow your app to respond to this logout.
