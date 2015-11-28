@@ -25,7 +25,8 @@ The remainder of this page discusses:
 
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes Bigcommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
-<div class="bui-message bui-message-info"><span class="bui-message-text">PRO TIP: The load request comes from the client browser, rather than directly from Bigcommerce. This allows you to use a non-publicly-available **Load Callback URI** while testing your app.</span></div>
+>PRO TIP: The load request comes from the client browser, rather than directly from Bigcommerce. This allows you to use a non-publicly-available **Load Callback URI** while testing your app.</span></div>
+
 
 The **GET** request contains a signed payload, as shown below.
 
@@ -53,7 +54,7 @@ Host: app.example.com
 
 Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
 
-<div class="bui-message bui-message-info"><span class="bui-message-text">PRO TIP: Any HTML that you return in your response will not be rendered.</span></div>
+>PRO TIP: Any HTML that you return in your response will not be rendered.</span></div>
 
 ## About the remove user request (optional)
 
@@ -90,17 +91,11 @@ To decode the signed payload, complete the following steps:
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
-<div class="bui-message bui-message-info"><span class="bui-message-text">PRO TIP: To limit the vulnerability of your app to [timing attacks](http://codahale.com/a-lesson-in-timing-attacks/), we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.</span></div>
+>PRO TIP: To limit the vulnerability of your app to [timing attacks](http://codahale.com/a-lesson-in-timing-attacks/), we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.</span></div>
 
 #### Examples
 
-<div class="bui-tabs">
-
 *   [PHP](#strcmp-php)
-*   [Ruby](#strcmp-ruby)
-
-<div class="bui-tab-panel is-active" id="strcmp-php">
-
 ```
 function verifySignedRequest($signedRequest)
 {
@@ -125,7 +120,8 @@ function verifySignedRequest($signedRequest)
 
 </div>
 
-<div class="bui-tab-panel" id="strcmp-ruby">
+
+*   [Ruby](#strcmp-ruby)
 
 ```
 require "base64"
