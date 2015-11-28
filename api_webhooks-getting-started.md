@@ -33,7 +33,6 @@ Before you can send any requests or receive any responses, you will need the fol
 *   **Valid TLS/SSL set up**: verify your set up at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
 
 >PRO TIP: Any one of the following will cause a connection failure:
-
 *   Hostname/DNS mismatch
 *   Self-signed certificate
 *   Intermediate certificates not loaded
