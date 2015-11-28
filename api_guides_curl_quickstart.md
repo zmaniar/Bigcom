@@ -211,7 +211,7 @@ The API returns the following, which includes an option set ID.
 
 The final step is to connect the option with the option set.
 
-<pre class="pretty print">**curl --request POST \
+<pre class="pretty print">curl --request POST \
     -u "_username_:_API_key_" \
     -d '{"option_id": "33", "display_name":"Simpson family"}' \
     -H "Content-Type: application/json" \
@@ -219,4 +219,4 @@ The final step is to connect the option with the option set.
 
 Which results in the following.
 
-<pre class="pretty print">**{"id":44,"option_id":33,"option_set_id":27,"display_name":"Simpson family","sort_order":0,"is_required":false,"option":{"url":"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33.json","resource":"/options/33"}}</pre>
+<pre class="pretty print">{"id":44,"option_id":33,"option_set_id":27,"display_name":"Simpson family","sort_order":0,"is_required":false,"option":{"url":"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33.json","resource":"/options/33"}}</pre>
