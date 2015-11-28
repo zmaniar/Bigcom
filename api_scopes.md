@@ -4,7 +4,6 @@ The following table identifies the name used for each OAuth scope in the My Apps
 
 All OAuth scopes except **default** have **read_only** scopes which allow only **GET** and **HEAD** requests.
 
-<colgroup><col style="width:33.333%"> <col style="width:33.333%"> <col style="width:33.333%"></colgroup>
 | Scope GUI Name | Scope Strings | Resources |
 | --- | --- | --- |
 | Content | **store_v2_content** |[blog/posts](/api/stores/v2/blog/posts)
