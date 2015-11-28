@@ -9,7 +9,6 @@ All OAuth scopes except **default** have **read_only** scopes which allow only *
 | Content | **store_v2_content** |[blog/posts](/api/stores/v2/blog/posts)
 ||**store_v2_content_read_only** |[blog/tags](/api/stores/v2/blog/tags)|
 |||[redirects](/api/stores/v2/redirects)|
-|
 | Customers | **store_v2_customers**|[customers](/api/stores/v2/customers)
 ||**store_v2_customers_read_only** | [customers/{id}/addresses](/api/stores/v2/customers/addresses)|
 |||[customer_groups](/api/stores/v2/customer_groups) |
