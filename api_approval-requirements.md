@@ -36,156 +36,31 @@ Our submission guidelines aim to protect the merchant experience, as well as pro
 
 *   Any instances of the Bigcommerce brand name must be correctly spelled, i.e., one word with a lowercase 'c'.
 
-*   Must have all required information and files discussed in [App Submission](/api/completing-reg).  
+*   Must have all required information and files discussed in [App Submission](/api/completing-reg).
 
 ## Types of apps we're accepting
 
-<table class="bui-table"><colgroup><col style="width:50%"> <col style="width:50%"></colgroup>
-
-<thead>
-
-<tr>
-
-<th>Accepting</th>
-
-<th>Not accepting</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>Accounting</td>
-
-<td>Real-Time Tax</td>
-
-</tr>
-
-<tr>
-
-<td>Advertising</td>
-
-<td>Customized Checkout</td>
-
-</tr>
-
-<tr>
-
-<td>Analytics</td>
-
-<td>Real-time Shipping Rate updates</td>
-
-</tr>
-
-<tr>
-
-<td>Cloud integration</td>
-
-<td>Payment Methods</td>
-
-</tr>
-
-<tr>
-
-<td>Customer feedback</td>
-
-</tr>
-
-<tr>
-
-<td>Drop shipping</td>
-
-</tr>
-
-<tr>
-
-<td>Email marketing</td>
-
-</tr>
-
-<tr>
-
-<td>Live chat</td>
-
-</tr>
-
-<tr>
-
-<td>Marketing</td>
-
-</tr>
-
-<tr>
-
-<td>Merchandising</td>
-
-</tr>
-
-<tr>
-
-<td>Mobile</td>
-
-</tr>
-
-<tr>
-
-<td>Multichannel listing</td>
-
-</tr>
-
-<tr>
-
-<td>Order fulfillment</td>
-
-</tr>
-
-<tr>
-
-<td>Order management</td>
-
-</tr>
-
-<tr>
-
-<td>Point of sale</td>
-
-</tr>
-
-<tr>
-
-<td>Product review</td>
-
-</tr>
-
-<tr>
-
-<td>Shipping</td>
-
-</tr>
-
-<tr>
-
-<td>Shopping comparison</td>
-
-</tr>
-
-<tr>
-
-<td>Social media</td>
-
-</tr>
-
-<tr>
-
-<td>Split testing</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Accepting | Not accepting |
+| --- | --- |
+| Accounting | Real-Time Tax |
+| Advertising | Customized Checkout |
+| Analytics | Real-time Shipping Rate updates |
+| Cloud integration | Payment Methods |
+| Customer feedback |
+| Drop shipping |
+| Email marketing |
+| Live chat |
+| Marketing |
+| Merchandising |
+| Mobile |
+| Multichannel listing |
+| Order fulfillment |
+| Order management |
+| Point of sale |
+| Product review |
+| Shipping |
+| Shopping comparison |
+| Social media |
+| Split testing |
 
 Questions? Please contact [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com)
